@@ -56,6 +56,15 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'chat_project.wsgi.application'
 
+IN_DOCKER = os.environ.get('IN_DOCKER') == 'true' or os.path.exists('/.dockerenv')
+
+if IN_DOCKER:
+    POSTGRES_HOST = os.getenv('POSTGRES_HOST', 'db')
+    print(f"Docker environment detected. Using host: {POSTGRES_HOST}")
+else:
+    POSTGRES_HOST = os.getenv('POSTGRES_HOST', 'localhost')
+    print(f"Local environment detected. Using host: {POSTGRES_HOST}")
+
 # Database
 DATABASES = {
     'default': {
@@ -63,7 +72,7 @@ DATABASES = {
         'NAME': os.getenv('POSTGRES_DB', 'chat'),
         'USER': os.getenv('POSTGRES_USER', 'postgres'),
         'PASSWORD': os.getenv('POSTGRES_PASSWORD', '123'),
-        'HOST': os.getenv('POSTGRES_HOST', 'localhost'),
+        'HOST': POSTGRES_HOST,
         'PORT': os.getenv('POSTGRES_PORT', '5432'),
     }
 }
