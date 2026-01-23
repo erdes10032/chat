@@ -120,6 +120,12 @@ python manage.py runserver
 
 ### Способ 2: Docker-установка
 
+**Клонировать репозиторий**
+```bash
+git clone https://github.com/erdes10032/chat.git
+cd chat\chat_project
+```
+
 **Запустить проект с помощью Docker Compose**
 ```bash
 docker-compose up --build
@@ -130,7 +136,7 @@ docker-compose up --build
 docker-compose down
 ```
 
-**Остановить проект с удалением volumes**
+**Остановить проект с удалением volumes (опционально)**
 ```bash
 docker-compose down -v
 ```
