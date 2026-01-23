@@ -298,6 +298,9 @@ curl -X POST "http://localhost:8000/api/chats/1/messages/" \
 ## Тестирование
 
 ```bash
+# Если приложение запущено в докере, то нужно войти в контейнер
+docker-compose exec web bash
+
 # Запуск всех тестов
 python manage.py test
 
