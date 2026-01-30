@@ -56,13 +56,13 @@ REST API для управления чатами и сообщениями. С�
 
 ### Способ 1: Локальная установка
 
-**Клонировать репозиторий**
+**1. Клонировать репозиторий**
 ```bash
 git clone https://github.com/erdes10032/chat.git
 cd chat
 ```
 
-**Создать виртуальное окружение**
+**2. Создать виртуальное окружение**
 ```bash
 python -m venv venv
 source venv/bin/activate  # Linux/Mac
@@ -70,41 +70,22 @@ source venv/bin/activate  # Linux/Mac
 venv\Scripts\activate  # Windows
 ```
 
-**Установить зависимости**
+**3. Установить зависимости**
 ```bash
 cd chat_project
 pip install -r requirements.txt
 ```
 
-**Настроить переменные окружения**
-```bash
-# Linux/macOS
-echo "SECRET_KEY=your_secret_key" >> .env # введите свой секретный ключ
-echo "DEBUG=True" >> .env
-echo "ALLOWED_HOSTS=localhost,127.0.0.1" >> .env
-echo "POSTGRES_DB=chat" >> .env
-echo "POSTGRES_USER=postgres" >> .env
-echo "POSTGRES_PASSWORD=your_postgres_password" >> .env # введите свой пароль
-echo "POSTGRES_PORT=5432" >> .env
+**4. Заполнить файл .env своими данными**
 
-#Windows
-echo SECRET_KEY=your_secret_key >> .env # введите свой секретный ключ
-echo DEBUG=True >> .env
-echo ALLOWED_HOSTS=localhost,127.0.0.1 >> .env
-echo POSTGRES_DB=chat >> .env
-echo POSTGRES_USER=postgres >> .env
-echo POSTGRES_PASSWORD=your_postgres_password >> .env # введите свой пароль
-echo POSTGRES_PORT=5432 >> .env
-```
-
-**Создать базу данных в PostgreSQL**
+**5. Создать базу данных в PostgreSQL**
 ```sql
 CREATE DATABASE chat;
 CREATE USER postgres WITH PASSWORD 'your_postgres_password'; -- введите свой пароль
 GRANT ALL PRIVILEGES ON DATABASE chat TO postgres;
 ```
 
-**Выполнить миграции**
+**6. Выполнить миграции**
 ```bash
 python manage.py migrate
 ```
@@ -113,32 +94,34 @@ python manage.py migrate
 ```bash
 python manage.py createsuperuser
 ```
-**Запустить сервер**
+**7. Запустить сервер**
 ```bash
 python manage.py runserver
 ```
 
 ### Способ 2: Docker-установка
 
-**Клонировать репозиторий**
+**1. Клонировать репозиторий**
 ```bash
 git clone https://github.com/erdes10032/chat.git
 cd chat\chat_project
 ```
 
-**Запустить проект с помощью Docker Compose**
+**2. Заполнить файл .env своими данными**
+
+**3. Запустить проект с помощью Docker Compose**
 ```bash
 docker-compose up --build
 ```
 
-**Остановить проект (опционально)**
+**4. Остановить проект (опционально)**
 ```bash
 docker-compose down
 ```
 
-**Остановить проект с удалением volumes (опционально)**
+**5. Остановить проект с удалением всех данных (опционально)**
 ```bash
-docker-compose down -v
+docker-compose down -v --rmi all
 ```
 
 ## API Документация
