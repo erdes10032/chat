@@ -59,7 +59,7 @@ REST API для управления чатами и сообщениями. С�
 **1. Клонировать репозиторий**
 ```bash
 git clone https://github.com/erdes10032/chat.git
-cd chat\chat_project
+cd chat/chat_project
 ```
 
 **2. Создать виртуальное окружение**
@@ -103,7 +103,7 @@ python manage.py runserver
 **1. Клонировать репозиторий**
 ```bash
 git clone https://github.com/erdes10032/chat.git
-cd chat\chat_project
+cd chat/chat_project
 ```
 
 **2. Заполнить файл .env своими данными**
